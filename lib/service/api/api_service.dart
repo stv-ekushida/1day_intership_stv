@@ -9,7 +9,7 @@ part 'api_service.chopper.dart';
 @ChopperApi()
 abstract class ApiService extends ChopperService {
   static const baseUrl = "https://webservice.recruit.co.jp/hotpepper";
-  static const apiKey = "";
+  static const apiKey = "efd4685dbbb4d15f";
 
   static ApiService create() {
     final client = ChopperClient(
