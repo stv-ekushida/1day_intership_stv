@@ -2,10 +2,10 @@
 
 STVテック 1Dayインターンシップ用プロジェクト
 
-## Getting Started
+## 開発環境
 
-Flutter Ver. 2.2.0
-Dart Ver. 2.13.0
+- Flutter Ver. 2.2.0
+- Dart Ver. 2.13.0
 
 ## Plugin & Package
 - APIクライアント　: chopper
