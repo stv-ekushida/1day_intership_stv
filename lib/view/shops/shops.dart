@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_stv_1day_intership/component/loading_view/error_view.dart';
+import 'package:flutter_stv_1day_intership/component/loading_view/loading_view.dart';
 import 'package:flutter_stv_1day_intership/repository/shops_repository.dart';
 
 import 'component/shops_template.dart';
@@ -28,19 +30,20 @@ class Shops extends ConsumerWidget {
         return ListView.builder(
           itemCount: data.length,
           itemBuilder: (context, index) {
-            return ShopsTemplate(
-              shop: data[index],
+            return GestureDetector(
+              child: ShopsTemplate(
+                shop: data[index],
+              ),
+              onTap: () {
+                //TODO9 : 店舗詳細画面へ遷移
+              },
             );
           },
         );
       },
-      loading: () => Center(
-        child: CircularProgressIndicator(),
-      ),
-      error: (e, _) => Center(
-        child: Text(
-          e.toString(),
-        ),
+      loading: () => LoadingView(),
+      error: (e, _) => ErrorView(
+        error: e,
       ),
     );
   }
