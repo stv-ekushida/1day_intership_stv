@@ -5,17 +5,12 @@ import 'package:flutter_stv_1day_intership/model/shops/shops_response.dart';
 import 'package:flutter_stv_1day_intership/service/api/api_service.dart';
 
 final shopsFutureProvider = FutureProvider.autoDispose
-    .family<List<Shop>, String>((ref, middleArea) =>
-        ShopsRepository.instance.shops(middleArea: middleArea));
+    .family<List<Shop>, String>(
+        (ref, middleArea) => ShopsRepository.shops(middleArea: middleArea));
 
 class ShopsRepository {
-  ShopsRepository._();
-
-  static final instance = ShopsRepository._();
-
-  final ApiService _apiService = ApiService.create();
-
-  Future<List<Shop>> shops({required String middleArea}) async {
+  static Future<List<Shop>> shops({required String middleArea}) async {
+    final ApiService _apiService = ApiService.create();
     Response _response;
 
     try {
@@ -27,7 +22,7 @@ class ShopsRepository {
       if (_response.isSuccessful) {
         return ShopsResponse.fromJson(_response.body).results.shop;
       } else {
-        return Future.value();
+        throw Exception('Shops API Parse Failure');
       }
     } on Exception catch (e) {
       throw e;

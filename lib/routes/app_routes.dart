@@ -6,6 +6,8 @@ import 'package:flutter_stv_1day_intership/view/shops/shops_arguments.dart';
 class AppRoutes {
   static const shops = '/shops';
   static const middleAreas = '/middleAreas';
+
+  //TODO8: ルーターを追加
 }
 
 class AppRouter {
@@ -17,6 +19,8 @@ class AppRouter {
 
       case AppRoutes.middleAreas:
         return _buildRoute(MiddleAreas(), settings: settings);
+
+      //TODO8: ルーターを追加
 
       default:
         return null;

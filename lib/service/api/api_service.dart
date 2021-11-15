@@ -8,15 +8,20 @@ part 'api_service.chopper.dart';
 
 @ChopperApi()
 abstract class ApiService extends ChopperService {
-  static const baseUrl = "https://webservice.recruit.co.jp/hotpepper";
-  static const apiKey = "";
+  static const baseUrl = 'https://webservice.recruit.co.jp/hotpepper';
+
+  //TODO1: APIキーを設定
+  static const apiKey = '';
 
   static ApiService create() {
     final client = ChopperClient(
         baseUrl: baseUrl,
         services: [_$ApiService()],
         client: http.IOClient(
-          HttpClient()..connectionTimeout = const Duration(seconds: 60),
+          HttpClient()
+            ..connectionTimeout = const Duration(
+              seconds: 60,
+            ),
         ),
         converter: JsonConverter(),
         interceptors: [
